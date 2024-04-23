@@ -6,6 +6,13 @@ import styles from "@/styles/Home.module.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+
+  function handleBtnClick() {
+    navigator.geolocation.getCurrentPosition(pos => {
+      alert(`YOUR LOCATION: lat: ${pos.coords.latitude}, long: ${pos.coords.longitude} `)
+    });
+  }
+
   return (
     <>
       <Head>
@@ -16,6 +23,11 @@ export default function Home() {
       </Head>
       <main className={`${styles.main} ${inter.className} position-relative`}>
         <div className={styles.description}>
+          <button className='btn' onClick={handleBtnClick}>
+            <span className="btn-txt">
+              Don{"'"}t click me!
+            </span>
+          </button>
           <p>
             Get started by editing&nbsp;
             <code className={styles.code}>src/pages/index.js</code>
