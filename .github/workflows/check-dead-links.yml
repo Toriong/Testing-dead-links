@@ -19,4 +19,4 @@ jobs:
         run: npm run build
         
       - name: Check for dead links
-        run: broken-link-checker --recursive --exclude node_modules https://your-domain.com
+        run: broken-link-checker --recursive --exclude node_modules https://csp-example-rho.vercel.app/
