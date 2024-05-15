@@ -29,7 +29,7 @@ export default function Home() {
               Don{"'"}t click me!
             </span>
           </button>
-          <Link href="https://www.goole.com/">
+          <Link href="/yo-there">
             Go to Google.
           </Link>
           <p>
