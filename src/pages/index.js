@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -9,7 +10,7 @@ export default function Home() {
 
   function handleBtnClick() {
     navigator.geolocation.getCurrentPosition(pos => {
-      alert(`YOUR LOCATION: lat: ${pos.coords.latitude}, long: ${pos.coords.longitude} `)
+      alert(`Your location: lat: ${pos.coords.latitude} long: ${pos.coords.longitude} `)
     });
   }
 
@@ -28,6 +29,9 @@ export default function Home() {
               Don{"'"}t click me!
             </span>
           </button>
+          <Link href="https://www.goole.com/">
+            Go to Google.
+          </Link>
           <p>
             Get started by editing&nbsp;
             <code className={styles.code}>src/pages/index.js</code>
