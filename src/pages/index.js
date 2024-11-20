@@ -3,10 +3,19 @@ import Image from "next/image";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import Link from "next/link";
+import { useEffect } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+
+  // test a dead link
+
+  useEffect(() => {
+    (async () => {
+      await fetch('/hello');
+    })();
+  }, []);
 
   function handleBtnClick() {
     navigator.geolocation.getCurrentPosition(pos => {
