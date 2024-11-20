@@ -38,8 +38,8 @@ export default function Home() {
               Don{"'"}t click me!
             </span>
           </button>
-          <Link href="https://www.goolesadfjkasdfmadsm.com/">
-            Go to Google.
+          <Link href="https://csp-example-rho.vercel.app/adsfdsf">
+            sup there
           </Link>
           <p>
             Get started by editing&nbsp;
@@ -47,7 +47,7 @@ export default function Home() {
           </p>
           <div>
             <a
-              href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+              href="https://csp-example-rho.vercel.app/asdasdfasdf"
               target="_blank"
               rel="noopener noreferrer"
             >
