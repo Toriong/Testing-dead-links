@@ -3,6 +3,13 @@ on: push
 jobs:
   dead-links-check:
     runs-on: ubuntu-latest
+    env:
+      NEXT_PUBLIC_MONGODB_USER: ${{ vars.NEXT_PUBLIC_MONGODB_USER }}
+      NEXT_PUBLIC_MONGODB_PASSWORD: ${{ secrets.NEXT_PUBLIC_MONGODB_PASSWORD }}
+      NEXT_PUBLIC_MONGODB_DB_NAME: ${{ vars.NEXT_PUBLIC_MONGODB_DB_NAME }}
+      NEXT_PUBLIC_MONGODB_PROJECT_ID: ${{ vars.NEXT_PUBLIC_MONGODB_PROJECT_ID }}
+      NEXT_PUBLIC_MONGODB_PROJECT_PRIVATE_KEY: ${{ secrets.NEXT_PUBLIC_MONGODB_PROJECT_PRIVATE_KEY }}
+      NEXT_PUBLIC_MONGODB_PROJECT_PUBLIC_KEY: ${{ vars.NEXT_PUBLIC_MONGODB_PROJECT_PUBLIC_KEY }}
 
     steps:
       - uses: actions/checkout@v3
@@ -14,13 +21,6 @@ jobs:
 
       - name: Build Next.js app
         run: npm run build
-        env:
-          NEXT_PUBLIC_MONGODB_USER: ${{ vars.NEXT_PUBLIC_MONGODB_USER }}
-          NEXT_PUBLIC_MONGODB_PASSWORD: ${{ secrets.NEXT_PUBLIC_MONGODB_PASSWORD }}
-          NEXT_PUBLIC_MONGODB_DB_NAME: ${{ vars.NEXT_PUBLIC_MONGODB_DB_NAME }}
-          NEXT_PUBLIC_MONGODB_PROJECT_ID: ${{ vars.NEXT_PUBLIC_MONGODB_PROJECT_ID }}
-          NEXT_PUBLIC_MONGODB_PROJECT_PRIVATE_KEY: ${{ secrets.NEXT_PUBLIC_MONGODB_PROJECT_PRIVATE_KEY }}
-          NEXT_PUBLIC_MONGODB_PROJECT_PUBLIC_KEY: ${{ vars.NEXT_PUBLIC_MONGODB_PROJECT_PUBLIC_KEY }}
 
       - name: Check for dead links
         run: broken-link-checker --recursive --exclude node_modules https://csp-example-rho.vercel.app/
