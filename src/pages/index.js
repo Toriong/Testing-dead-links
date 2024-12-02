@@ -39,7 +39,7 @@ export default function Home() {
             </span>
           </button>
           <Link href="/yo-there">
-            sup there
+            sup there go to target page
           </Link>
           <p>
             Get started by editing&nbsp;
