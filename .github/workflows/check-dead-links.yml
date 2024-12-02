@@ -10,6 +10,7 @@ jobs:
       MONGODB_PROJECT_ID: ${{ vars.MONGODB_PROJECT_ID }}
       MONGODB_PROJECT_PRIVATE_KEY: ${{ secrets.MONGODB_PROJECT_PRIVATE_KEY }}
       MONGODB_PROJECT_PUBLIC_KEY: ${{ vars.MONGODB_PROJECT_PUBLIC_KEY }}
+      MONGO_DB_PROD: ${{ vars.MONGODB_DB_PROD }}
 
     steps:
       - uses: actions/checkout@v3

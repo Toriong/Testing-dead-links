@@ -33,6 +33,9 @@ export const getStaticProps = async (arg) => {
     }
 
     const connectionUri = `mongodb+srv://${MONGODB_USER}:${MONGODB_PASSWORD}@cluster0.tynope2.mongodb.net/${dbName}`;
+
+    console.log('connectionUri, hey yo there: ', connectionUri);
+
     const connectionState = await mongoose.connect(connectionUri, {
         retryWrites: true,
     });
