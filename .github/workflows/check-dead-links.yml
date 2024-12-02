@@ -20,9 +20,6 @@ jobs:
           npm ci
           npm install -g broken-link-checker
 
-      - name: Build Next.js app
-        run: npm run build
-
       - name: Check for dead links
         run: |
           export $(echo "${{ toJson(env) }}" | jq -r 'to_entries | map("\(.key)=\(.value|tostring)") | .[]')
