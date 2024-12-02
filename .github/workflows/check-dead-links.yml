@@ -4,12 +4,7 @@ jobs:
     dead-links-check:
       runs-on: ubuntu-latest
       env:
-        NEXT_PUBLIC_MONGODB_USER: ${{ vars.NEXT_PUBLIC_MONGODB_USER }}
-        NEXT_PUBLIC_MONGODB_PASSWORD: ${{ secrets.NEXT_PUBLIC_MONGODB_PASSWORDD}}
-        NEXT_PUBLIC_MONGODB_DB_NAME: ${{ vars.NEXT_PUBLIC_MONGODB_DB_NAME }}
-        NEXT_PUBLIC_MONGODB_PROJECT_ID: ${{ vars.NEXT_PUBLIC_MONGODB_PROJECT_ID }}
-        NEXT_PUBLIC_MONGODB_PROJECT_PRIVATE_KEY: ${{ secrets.NEXT_PUBLIC_MONGODB_PROJECT_PRIVATE_KEY }}
-        NEXT_PUBLIC_MONGODB_PROJECT_PUBLIC_KEY: ${{ vars.NEXT_PUBLIC_MONGODB_PROJECT_PUBLIC_KEY }}
+        secrets:
       steps:
       - uses: actions/checkout@v3
       
@@ -17,6 +12,16 @@ jobs:
         run: |
           npm ci
           npm install -g broken-link-checker
+      - name: Create env file
+        run: |
+          touch .env
+          echo "NEXT_PUBLIC_MONGODB_PASSWORD=${{ secrets.NEXT_PUBLIC_MONGODB_PASSWORD }}" >> .env
+          echo "NEXT_PUBLIC_MONGODB_PROJECT_PRIVATE_KEY=${{ secrets.NEXT_PUBLIC_MONGODB_PROJECT_PRIVATE_KEY }}" >> .env
+          echo "NEXT_PUBLIC_MONGODB_DB_NAME=${{ vars.NEXT_PUBLIC_MONGODB_DB_NAME }}" >> .env
+          echo "NEXT_PUBLIC_MONGODB_PROJECT_ID=${{ vars.NEXT_PUBLIC_MONGODB_PROJECT_ID }}" >> .env
+          echo "NEXT_PUBLIC_MONGODB_PROJECT_PUBLIC_KEY=${{ vars.NEXT_PUBLIC_MONGODB_PROJECT_PUBLIC_KEY }}" >> .env
+          echo "NEXT_PUBLIC_MONGODB_USER=${{ vars.NEXT_PUBLIC_MONGODB_USER }}" >> .env
+          
           
       - name: Build Next.js app
         run: npm run build
