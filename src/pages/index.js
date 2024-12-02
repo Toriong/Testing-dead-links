@@ -38,7 +38,7 @@ export default function Home() {
               Don{"'"}t click me!
             </span>
           </button>
-          <Link href="https://csp-example-rho.vercel.app/hi">
+          <Link href="https://csp-example-rho.vercel.app/hiasdfasdf">
             sup there
           </Link>
           <p>
