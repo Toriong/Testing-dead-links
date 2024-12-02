@@ -1,6 +1,9 @@
+import { connectToMongodb } from "@/connection";
+
 const { useEffect } = require("react");
 
-const HiPage = () => {
+const HiPage = ({ data }) => {
+
 
     useEffect(() => {
         (async () => {
@@ -17,4 +20,16 @@ const HiPage = () => {
     );
 }
 
-export default HiPage
+export const getStaticProps = async (arg) => {
+    await connectToMongodb();
+
+    console.log("Connection to database has been made.");
+    return {
+        props: {
+            data: "hello"
+        }
+    }
+}
+
+export default HiPage;
+

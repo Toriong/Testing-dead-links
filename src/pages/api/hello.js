@@ -9,3 +9,4 @@ export default function handler(req, res) {
     .status(200)
     .json({ name: "John Doe", someVal: process.env.TEST_TOKEN.toLowerCase() });
 }
+
