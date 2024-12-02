@@ -23,7 +23,7 @@ export const getStaticProps = async (arg) => {
     const { MONGODB_PASSWORD, MONGODB_USER, MONGODB_DB_NAME, MONGODB_DB_PROD } =
         process.env;
 
-    console.log('sup there.')
+    console.log('sup there.', process)
     console.log("yo there secrets: ", secrets);
     console.log("process.env: ", process.env);
     console.log('MONGODB_DB_NAME, yo there: ', MONGODB_DB_NAME);
