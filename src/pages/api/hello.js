@@ -1,5 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
+// dead links route is not working when pushing to the remote branch
+
 export default function handler(req, res) {
   console.log("TEST_TOKEN: ", process.env?.TEST_TOKEN)
 

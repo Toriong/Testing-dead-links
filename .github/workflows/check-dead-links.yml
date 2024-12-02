@@ -1,8 +1,5 @@
 name: Check for dead links for app
-on: 
-    schedule:
-        - cron: '0 0 * * 0'
-    push:
+on: push
 jobs:
     dead-links-check:
       runs-on: ubuntu-latest
