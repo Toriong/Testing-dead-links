@@ -33,7 +33,7 @@ export const getStaticProps = async (arg) => {
         retryWrites: true,
     });
 
-    console.log("connectionState: ", connectionState);
+    console.log("connectionState result: ", connectionState);
 
     return {
         props: {
