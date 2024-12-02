@@ -38,7 +38,7 @@ export default function Home() {
               Don{"'"}t click me!
             </span>
           </button>
-          <Link href="https://csp-example-rho.vercel.app/hiasdfasdfasdjkfads;l">
+          <Link href="/yo-there">
             sup there
           </Link>
           <p>
@@ -46,8 +46,8 @@ export default function Home() {
             <code className={styles.code}>src/pages/index.js</code>
           </p>
           <div>
-            <a
-              href="https://csp-example-rho.vercel.app/adlfjklasdfjalks;dfjkaf;ldsj;klsdjf;"
+            <Link
+              href="/asdfylasdfj"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -60,7 +60,7 @@ export default function Home() {
                 height={24}
                 priority
               />
-            </a>
+            </Link>
           </div>
         </div>
 
