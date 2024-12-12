@@ -8,6 +8,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
       
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.6.0'  # Specify a version that supports --env-file
+
       - name: Install dependencies
         run: npm install 
 
@@ -17,4 +22,9 @@ jobs:
           echo MONGODB_USER=${{ vars.MONGODB_DB_PROD }} >> .env.local
           
       - name: Run dead links checks
-        run: node --env-file=.env.local .github/checkDeadLinks.js
+        run: |
+          if node --version | grep -q "^v20.6" || node --version | grep -q "^v2[1-9]"; then
+            node --env-file=.env.local .github/checkDeadLinks.js
+          else
+            npm install dotenv
+            node -e "require('dotenv').config({path: '.env.local'}); require('./.github/checkDeadLinks.js');"
