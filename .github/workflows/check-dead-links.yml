@@ -2,6 +2,7 @@ name: Check for dead links for app
 on: push
 jobs:
   dead-links-check:
+    environment: Production
     runs-on: ubuntu-latest
 
     steps:
