@@ -17,4 +17,4 @@ jobs:
           echo MONGODB_USER=${{ vars.MONGODB_DB_PROD }} >> .env.local
           
       - name: Run dead links checks
-        run: node .github/checkDeadLinks.js
+        run: node --env-file=.env.local .github/checkDeadLinks.js
