@@ -23,8 +23,5 @@ jobs:
           
       - name: Run dead links checks
         run: |
-          if node --version | grep -q "^v20.6" || node --version | grep -q "^v2[1-9]"; then
-            node --env-file=.env.local .github/checkDeadLinks.js
-          else
-            npm install dotenv
-            node -e "require('dotenv').config({path: '.env.local'}); require('./.github/checkDeadLinks.js');"
+          node --env-file=.env.local .github/checkDeadLinks.js
+          
