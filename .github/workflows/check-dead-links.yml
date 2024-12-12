@@ -20,7 +20,7 @@ jobs:
       - name: Build and run the production app 
         run: |
           touch .env.local
-          echo MONGODB_DB_PROD=${{ env.MONGODB_DB_PROD }} >> .env.local
+          echo MONGODB_DB_PROD=${{ vars.MONGODB_DB_PROD }} >> .env.local
           
       - name: Run dead links checks
         run: |
